@@ -2000,6 +2000,8 @@ function connect() {
             bot.editMessageText(text, opts); */
         });
 
+        bot.on('edited_message', processTelegramText)
+
         bot.on('polling_error', error => {
             if (isConnected) {
                 adapter.log.warn(`polling_error: ${error.code}, ${error.message.replace(/<[^>]+>/g, '')}`); // => 'EFATAL'
